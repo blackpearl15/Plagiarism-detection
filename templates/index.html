@@ -1,0 +1,328 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exploring the different areas</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+    <li>Hello, {{user.first_name}} </li>
+    <li> <a href="accounts/logout"> Logout </a></li>
+    {%  else %}
+    <a href="accounts/register">Register</a>
+    <a href="accounts/login">Login</a>
+    {% endif %}
+</body>
+</html> -->
+
+
+{%  load static %}
+{% load socialaccount %}
+{% providers_media_js %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/66625e7f73.js" crossorigin="anonymous"></script>
+     <link rel="stylesheet" href="{% static 'indexkastyle.css'  %}">
+    <title> Homepage </title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="height: 70px;">
+      <a class="navbar-brand" style="margin-left: 131px;" href="#">Detect</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto" style="margin-left: 145px;">
+          <li class="nav-item active">
+            <a class="nav-link" href="loginform/index.html">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" style="padding-left: 21px;" href="#"> About <span class="sr-only">(current)</span></a>
+          </li>               
+        </ul>
+       
+
+        {% if user.is_authenticated %}
+        <div class="arealeft">
+            <ul class="navbar-nav mr-auto" style="margin-right: 70px;">
+                <li class="nav-item active">
+                    <a class="nav-link" style="margin-right: 20px;" href="#" > Hello, {{user.first_name}}  <span class="sr-only">(current)</span></a>
+                     
+                </li>
+              <li class="nav-item active">
+                <a class="nav-link" style="margin-right: 259px;" href="accounts/logout" > Logout  <span class="sr-only">(current)</span></a>
+              </li>
+            </ul>
+          </div>
+        {%  else %}
+        <div class="arealeft">
+          <ul class="navbar-nav mr-auto" style="margin-right: 70px;">
+            <li class="nav-item active">
+              <a class="nav-link" style="margin-right: 20px;" href="accounts/register" >Register <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" style="margin-right: 259px;" href="accounts/login">Log in <span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+        </div>
+        {% endif %}
+      </div>
+    </nav>
+
+    <div>
+      {% for message in messages%}
+     <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>{{message}}.......... </strong> <span></span>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endfor %}
+  </div>     
+
+    <div class="justbelow">
+          <p>This could be an image or starting area of page. Need to put something later.</p>
+    </div> 
+
+       <div class="startkarna">
+                <h3>Word count </h3>
+       </div>
+      
+      
+<div class="fromkacont">     
+         <form action="result" method="POST" class="form-container">
+          {% csrf_token %}
+            <div class="col-md-5">
+              <div class="leftcard">
+                <div class="form-group">
+                  <!-- <label for="exampleFormControlTextarea1">Your CODE 1 goes here</label> -->
+                  <textarea class="form-control" placeholder="Enter your Code 1 here" name="sa" id="exampleFormControlTextarea1" rows="10" 
+                  style="height: 476px;margin-top: 80px;margin-left: 32px;"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5">
+            <div class="rightcard">
+              <div class="form-group">
+                <!-- <label for="exampleFormControlTextarea1">Your CODE 2 goes here</label> -->
+                <textarea class="form-control"  placeholder="Enter your Code 2 here" name="sb" id="exampleFormControlTextarea2" rows="10" 
+                style="height: 476px;margin-top: 80px;margin-left: 32px;"></textarea>
+              </div>
+            </div>
+          </div>
+           <div class="formkeafter"><button type="submit" class="btn btn-primary btn-lg" 
+           style="position: relative;margin-top: -18px;margin-left: -50px">Check Plagiarism</button></div>
+          
+           
+         </form>
+        </div> 
+        <br><br><br><br>
+         <hr>
+      
+            <div class="formkeniche">
+            <form action="result" method="POST" class="form-container" style="height: 342px;">
+              {% csrf_token %}
+              <div class="col-md-5">
+                <div class="leftcard" style="margin-left: 122px;margin-top: 98px;">
+                  <div class="form-group">
+                    <label for="exampleFormControlFile1">Code 1 file upload here</label>
+                    <input type="file" name="fileup1" class="form-control-file" id="exampleFormControlFile1">
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-5">
+              <div class="rightcard" style="margin-left: 122px;margin-top: 98px;">
+                <div class="form-group">
+                  <label for="exampleFormControlFile1">Code 2 file upload here</label>
+                  <input type="file" name="fileup2" class="form-control-file" id="exampleFormControlFile1">
+                </div>
+              </div>
+            </div>
+             <div class="formkeafter"><button type="submit" class="btn btn-primary btn-lg" 
+             style="position: relative;margin-top: -723px;margin-left: -103px">Check Plagiarism</button></div>
+            
+             
+           </form>
+                 
+              
+            </div>
+            <br><br><br><br>
+        <hr>
+
+        <br><br><br><br>
+
+           
+            
+              <div class="fromkacont">     
+                <form action="result" method="POST" class="form-container">
+                 {% csrf_token %}
+                   <div class="col-md-5">
+                     <div class="leftcard">
+                       <div class="form-group">
+                         <!-- <label for="exampleFormControlTextarea1">Your CODE 1 goes here</label> -->
+                         <textarea class="form-control" placeholder="Enter your Code 1 here" name="linkkesathcode" id="exampleFormControlTextarea1" rows="10" style="height: 476px;
+                         margin-top: 80px;margin-left: 32px;"></textarea>
+                       </div>
+                     </div>
+                   </div>
+                   <div class="col-md-5">
+                   <div class="rightcard">
+                     <div class="form-group">
+                       <!-- <label for="exampleFormControlTextarea1">Your CODE 2 goes here</label> -->
+                      <input type="url" class="form-control" name="linkname" style="margin-top: 223px;
+                      height: 92px;" placeholder="Enter the Link here">
+                     </div>
+                   </div>
+                 </div>
+                  <div class="formkeafter"><button type="submit" class="btn btn-primary btn-lg"
+                   style="position: relative;margin-top: -335px;margin-left: -143px;">Check Plagiarism</button></div>
+                 
+                  
+                </form>
+               </div> 
+             
+           
+         <div class="footerkeupar">
+           i am before footer.
+         </div>
+
+      
+         <br><br><br><br>
+ 
+     <div class="footer">
+      
+        <div class="dibba">
+            <div class="chiz">
+             <ul class="co">
+                 <li class="set">
+                     Content
+                 </li>
+                 <li><a href="#content">New resources</a></li>
+                 <li><a href="#conten">The most popular content</a></li>
+                 <li><a href="#conte">Search trends</a></li>
+                 <li><a href="#con">Blogs</a></li>
+             </ul>
+            </div>
+            <div class="chiz">
+             <ul class="co">
+                 <li class="set">
+                     information
+                 </li>
+                 <li><a href="#content">Plans & pricing</a></li>
+                 <li><a href="#conten">Affiliate</a></li>
+                 <li><a href="#conte">About us</a></li>
+                 <li><a href="#con">Jobs</a></li>
+                 <li><a href="#con">Become a contributor</a></li>
+             </ul>
+            </div>
+            <div class="chiz">
+ 
+             <ul class="co">
+                 <li class="set">
+                     Legal
+                 </li>
+                 <li><a href="#content">Terms & conditions</a></li>
+                 <li><a href="#conten">License Agreement</a></li>
+                 <li><a href="#conte">Privacy policy </a></li>
+                 <li><a href="#con">Copyright information</a></li>
+                 <li><a href="#con">Cookies policy  </a></li>
+                 <li><a href="#con">Cookies settings  </a></li>
+             </ul>
+            </div>
+            <div class="chiz">
+             <ul class="co">     
+             <li class="set">
+                 help
+             </li>
+             <li><a href="#content">Support</a></li>
+             <li><a href="#conten"> Contact us </a></li>
+               <br><br>
+ 
+             <li style="  text-align: left; text-decoration: none; color: #869fb2; font-size: 17px;">
+                 Get exclusive resources straight to your inbox</li>
+                 
+                 <button class="lastsignup">
+                     SIGN UP
+                 </button>
+         </ul>
+            </div>
+            
+        </div>
+       
+ 
+ 
+        <div class="las">
+             
+         <div class="pureleft">
+           <ul class="ult">
+               <li><a href="#">Get the IMDb App</a></li>
+               <li><a href="#">Privacy Policy</a></li>
+               <li><a href="#">Copyright @ Yash</a></li>
+           </ul>
+             
+         </div>
+ 
+         <div class="pureright">
+            <ul class="ulty">
+                <li><a href="#"><img src="{% static 'imagesarea/facebook.png' %}" style="width: 36px;height: 36px;"></a></li>
+                <li><a href="#"><img src="{% static 'imagesarea/instagram.png' %}" style="width: 36px;height: 36px;"></a></li>
+                <li><a href="#"><img src="{% static 'imagesarea/whatsapp.png' %}" style="width: 36px;height: 36px;"></a></li>
+                <li><a href="#"><img src="{% static 'imagesarea/twitter.png' %}" style="width: 36px;height: 36px;"></a></li>
+            </ul>
+         </div>
+     </div>
+   </div> 
+            
+     
+      
+      
+        <!-- Optional JavaScript; choose one of the two! -->
+    
+        <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    
+        <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+        -->
+
+
+      </div>
+    
+  </body>
+</html>
+
+
+<!-- 
+{% if user.is_authenticated %}
+<li>Hello, {{user.first_name}} </li>
+<li> <a href="accounts/logout"> Logout </a></li>
+{%  else %}
+<a href="accounts/register">Register</a>
+<a href="accounts/login">Login</a>
+{% endif %}
+    -->
+
+    <!-- <form class="form-container">
+      <div class="form-group">
+        <label for="exampleFormControlFile1">Example file input</label>
+        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlFile1">Example file input</label>
+        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+      </div>
+    </form> -->

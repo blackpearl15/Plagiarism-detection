@@ -1,0 +1,113 @@
+/* .container-fluid{
+    display: flex;
+} */
+
+
+/* .form-container {
+    position: absolute;
+    width: 388px;
+    height: 408px;
+    top: 100px;
+    background: #fff;
+    padding: 40px;
+    border: 2px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 11px 0px #000;
+} */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #fbf3ff;  
+}
+
+
+.container {
+    /* border: 3px solid black; */
+    position: absolute;
+    max-width: 841px;
+    height: 456px;
+    margin: auto;
+    top: -16%;
+    left: 51%;
+    transform: translate(-50% ,50%);
+}
+
+.myrightctn {
+    width: 100%;
+    position: relative;
+    background-image: linear-gradient(45deg,#739e7e,#0c5e8a);
+    border-radius: 25px;
+    height: 96%;
+    padding: 25px;
+    color: rgb(192, 192, 192);
+    font-size: 18px;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.myleftctn{
+    position: relative;
+    background: #fff;
+    border-radius: 25px;
+    margin-left: 35px;
+    height: 92%;
+    padding: 21px;
+    padding-left: 50px;
+}
+.row{
+    height: 100%;
+}
+.mycard{
+    position: relative;
+    background: #fff;
+    height: 100%;
+    border-radius: 25px;
+    box-shadow: 0px 10px 40px -10px #000;
+}
+.myleftctn header{
+    font-size: 44px;
+}
+.lineh{
+    border: 2px solid green;
+    display: flex;
+}
+.usernoboder{
+    border: none;
+    border-bottom: 1px solid black;
+}
+.newline{
+    margin-top: 36px;
+    /* border: 2px solid black; */
+    display :flex;
+}
+.leftline{
+    width: 79px;
+    height: 0px;
+    border: 1px solid  #b7c9cc;;
+}
+.middleline{
+    position: relative;
+    margin-left: 8px;
+    margin-right: 7px;
+    margin-top: -14px;
+}
+
+.rightline{
+    width: 79px;
+    height: 0px;
+    border: 1px solid  #b7c9cc;;
+}
+/* .socialup{
+    border: 2px solid black;
+} */
+.insidesocialup{
+    display: flex;
+    list-style-type: none;
+}
