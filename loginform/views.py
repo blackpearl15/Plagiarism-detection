@@ -21,9 +21,7 @@ def result(request):
 
     chara1 = request.FILES['fileup1',"-1"]
     chara2 = request.FILES['fileup2',"-1"]
-    
-    pdftxt1=chara1.name
-    pdftxt2=chara2.name
+
     # print(pdftxt1)
     # print(pdftxt2)
     if(txt1 != "-1" and txt2 != "-1"):
