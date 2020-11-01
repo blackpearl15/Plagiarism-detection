@@ -21,19 +21,19 @@ def result(request):
 
 
 
+
     state1 = request.POST.get('x1','off')
     print(state1)
  
     if(txt1 != "-1" and txt2 != "-1"):
-        if(txt1 != "" and txt2 != ""):
-            seq = SequenceMatcher(a=txt1,b=txt2)
-            ans = 100*(seq.ratio())
-            print(ans)
-            params= { 'hero': 'Changed' , 'answer': ans}
-            return render(request, 'result.html',params)
-        else:
-            return redirect('/')
-    elif(djtext1 != "-1" and djtext2 != "-1"):
+        seq = SequenceMatcher(a=txt1,b=txt2)
+        rat = 100*(seq.ratio())
+        print(rat)
+        rat = round(rat, 2)
+        params= { 'hero': 'YOUR PLAGARISM SCORE' , 'answer': rat}
+        return render(request, 'result.html',params)
+
+    elif djtext1 != "-1" and djtext2 != "-1":
 
         # print(djtext1)
         
@@ -55,16 +55,16 @@ def result(request):
         seq = SequenceMatcher(a=res, b=ans)
 
         rat = 100*(seq.ratio())
+        rat = round(rat, 2)
         print(rat*100)
 
 
-        params= { 'hero': 'Changed' , 'answer': rat}
+        params= { 'hero': 'YOUR PLAGARISM SCORE' , 'answer': rat}
         return render(request, 'result.html',params)
     
-    elif(request.method == 'POST' and state1 =='on'):
-        print("isme gussa")
-        chara1 = request.FILES['file1'].read()
-        chara2 = request.FILES['file2'].read()
+    elif request.method == 'POST' and state1 =='on':
+        chara1 = request.FILES['f1']
+        chara2 = request.FILES['f2']
 
         a = PyPDF2.PdfFileReader(chara1)
         c = PyPDF2.PdfFileReader(chara2)
@@ -76,14 +76,15 @@ def result(request):
 
         d=c.getNumPages()
         resu = ""
-        for i in range(1,c):
+        for i in range(1,d):
             resu += c.getPage(i).extractText()
         
         seq = SequenceMatcher(a=resu, b=ans)
 
-        rat = seq.ratio()
+        rat = 100 * (seq.ratio())
+        rat = round(rat, 2)
         print(rat*100)
 
 
-        params= { 'hero': 'Changed' , 'answer': rat}
+        params= { 'hero': 'YOUR PLAGARISM SCORE' , 'answer': rat}
         return render(request,'result.html',params)

@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.bgarea{
+    border: 2px solid green;
+    background-image: url('imagesarea/resultbg.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 630px;
+    color: white;
+    margin-top: 70px;
+}

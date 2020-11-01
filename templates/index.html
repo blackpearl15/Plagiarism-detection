@@ -34,7 +34,7 @@
      <link rel="stylesheet" href="{% static 'indexkastyle.css'  %}">
     <title> Homepage </title>
   </head>
-  <body>
+  <body  onload="myf()">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="height: 70px;">
       <a class="navbar-brand" style="margin-left: 131px;" href="#">Detect</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -89,6 +89,10 @@
     </div>
     {% endfor %}
   </div>     
+  <div id="loading">
+
+    
+  </div>
 
     <div class="justbelow">
           <p>This could be an image or starting area of page. Need to put something later.</p>
@@ -105,7 +109,7 @@
             <div class="col-md-5">
               <div class="leftcard">
                 <div class="form-group">
-                  <!-- <label for="exampleFormControlTextarea1">Your CODE 1 goes here</label> -->
+                  <label for="exampleFormControlTextarea1">INPUT 1</label>
                   <textarea class="form-control" placeholder="Enter your Code 1 here" name="sa" id="exampleFormControlTextarea1" rows="10" 
                   style="height: 476px;margin-top: 80px;margin-left: 32px;"></textarea>
                 </div>
@@ -114,7 +118,7 @@
             <div class="col-md-5">
             <div class="rightcard">
               <div class="form-group">
-                <!-- <label for="exampleFormControlTextarea1">Your CODE 2 goes here</label> -->
+                <label for="exampleFormControlTextarea1"> INPUT 2</label>
                 <textarea class="form-control"  placeholder="Enter your Code 2 here" name="sb" id="exampleFormControlTextarea2" rows="10" 
                 style="height: 476px;margin-top: 80px;margin-left: 32px;"></textarea>
               </div>
@@ -130,14 +134,16 @@
          <hr>
       
             <div class="formkeniche">
-            <form action="result" method="POST" class="form-container" style="height: 342px;">
+            <form action="result" method="POST" class="form-container" style="height: 342px;" enctype="multipart/form-data">
               {% csrf_token %}
               <div class="col-md-5">
                 <div class="leftcard" style="margin-left: 122px;margin-top: 98px;">
 
                   <div class="form-group">
-                    <label for="exampleFormControlFile1">Code 1 file upload here</label>
-                    <input type="file" name="file1" class="form-control-file" id="exampleFormControlFile1" enctype="multipart/form-data">
+                    <label for="exampleFormControlFile1">Code 1 file upload here</label><br>
+                    <input type="file" id="file1" name="f1" hidden="hidden">
+                         <button type="button" id="b2" class="btn btn-dark">CHOOSE A FILE</button>
+                         <span id="b2txt" name="i1">No file chosen, yet.</span>
                     
                     <div class="custom-control custom-switch">
                       <input type="checkbox" class="custom-control-input" name="x1" id="customSwitch1" style="margin-top: 73px;">
@@ -150,8 +156,10 @@
               <div class="col-md-5">
               <div class="rightcard" style="margin-left: 122px;margin-top: 98px;">
                 <div class="form-group">
-                  <label for="exampleFormControlFile1">Code 2 file upload here</label>
-                  <input type="file" name="file2" class="form-control-file" id="exampleFormControlFile1" enctype="multipart/form-data">
+                  <label for="exampleFormControlFile1">Code 2 file upload here</label><br>
+                  <input type="file" id="file2" name="f2" hidden="hidden">
+                  <button type="button" id="b3" class="btn btn-dark">CHOOSE A FILE</button>
+                  <span id="b3txt" name="i2">No file chosen, yet.</span>
                 </div>
               </div>
             </div>
@@ -290,7 +298,7 @@
      </div>
    </div> 
             
-     
+    
       
       
         <!-- Optional JavaScript; choose one of the two! -->
@@ -307,6 +315,51 @@
 
 
       </div>
+      <script type="text/javascript">
+
+        var preloader=document.getElementById('loading');
+        function myf(){
+        preloader.style.animationDuration = "10s";
+        preloader.style.display= 'none';
+       }
+
+
+       const realFileBtn = document.getElementById("file1");
+       const customBtn = document.getElementById("b2");
+       const customTxt = document.getElementById("b2txt");
+       const realFileBtn2 = document.getElementById("file2");
+       const customBtn2 = document.getElementById("b3");
+       const customTxt2 = document.getElementById("b3txt");
+
+    customBtn.addEventListener("click", function () {
+      realFileBtn.click();
+    });
+
+    realFileBtn.addEventListener("change", function () {
+      if (realFileBtn.value) {
+        customTxt.innerHTML = realFileBtn.value.match(
+          /[\/\\]([\w\d\s\.\-\(\)]+)$/
+        )[1];
+      } else {
+        customTxt.innerHTML = "No file chosen, yet.";
+      }
+    });
+
+
+    customBtn2.addEventListener("click", function () {
+      realFileBtn2.click();
+    });
+
+    realFileBtn2.addEventListener("change", function () {
+      if (realFileBtn2.value) {
+        customTxt2.innerHTML = realFileBtn2.value.match(
+          /[\/\\]([\w\d\s\.\-\(\)]+)$/
+        )[1];
+      } else {
+        customTxt2.innerHTML = "No file chosen, yet.";
+      }
+    });
+       </script>
     
   </body>
 </html>
