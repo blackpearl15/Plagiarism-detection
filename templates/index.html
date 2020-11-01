@@ -134,10 +134,16 @@
               {% csrf_token %}
               <div class="col-md-5">
                 <div class="leftcard" style="margin-left: 122px;margin-top: 98px;">
+
                   <div class="form-group">
                     <label for="exampleFormControlFile1">Code 1 file upload here</label>
-                    <input type="file" name="fileup1" class="form-control-file" id="exampleFormControlFile1">
+                    <input type="file" name="file1" class="form-control-file" id="exampleFormControlFile1" enctype="multipart/form-data">
                     
+                    <div class="custom-control custom-switch">
+                      <input type="checkbox" class="custom-control-input" name="x1" id="customSwitch1" style="margin-top: 73px;">
+                      <label class="custom-control-label"  for="customSwitch1" style="margin-top: 89px;
+                      margin-left: 12px;">Submit your documents</label>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -145,7 +151,7 @@
               <div class="rightcard" style="margin-left: 122px;margin-top: 98px;">
                 <div class="form-group">
                   <label for="exampleFormControlFile1">Code 2 file upload here</label>
-                  <input type="file" name="fileup2" class="form-control-file" id="exampleFormControlFile1">
+                  <input type="file" name="file2" class="form-control-file" id="exampleFormControlFile1" enctype="multipart/form-data">
                 </div>
               </div>
             </div>

@@ -3,8 +3,10 @@ from django.shortcuts import render,redirect
 from difflib import SequenceMatcher,Differ
 import requests
 from django.core.files.storage import FileSystemStorage
+from django.http import FileResponse
 from bs4 import BeautifulSoup
 import PyPDF2
+from django.template import RequestContext
 
 
 def index(request):
@@ -19,11 +21,9 @@ def result(request):
 
 
 
-    chara1 = request.FILES['fileup1',"-1"]
-    chara2 = request.FILES['fileup2',"-1"]
-
-    # print(pdftxt1)
-    # print(pdftxt2)
+    state1 = request.POST.get('x1','off')
+    print(state1)
+ 
     if(txt1 != "-1" and txt2 != "-1"):
         if(txt1 != "" and txt2 != ""):
             seq = SequenceMatcher(a=txt1,b=txt2)
@@ -61,9 +61,13 @@ def result(request):
         params= { 'hero': 'Changed' , 'answer': rat}
         return render(request, 'result.html',params)
     
-    elif(pdftxt1 != "-1" and pdftxt2 != "-1"):
-        a = PyPDF2.PdfFileReader(pdftxt1)
-        c = PyPDF2.PdfFileReader(pdftxt2)
+    elif(request.method == 'POST' and state1 =='on'):
+        print("isme gussa")
+        chara1 = request.FILES['file1'].read()
+        chara2 = request.FILES['file2'].read()
+
+        a = PyPDF2.PdfFileReader(chara1)
+        c = PyPDF2.PdfFileReader(chara2)
 
         b=a.getNumPages()
         ans = ""
@@ -82,4 +86,4 @@ def result(request):
 
 
         params= { 'hero': 'Changed' , 'answer': rat}
-        return render(request, 'result.html',params)
+        return render(request,'result.html',params)
