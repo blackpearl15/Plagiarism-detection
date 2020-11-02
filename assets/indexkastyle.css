@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+  }
+
 *{
     margin: 0;
     padding: 0;
@@ -17,17 +21,15 @@
 
   }
 .justbelow{
-    border: 2px solid green;
-    width: 50%;
-    height: 152px;
-    margin-left: 25%;
-    margin-top: 8%;
+    /* border: 2px solid green; */
+
+    margin-top: 7%;
     font-family: "Bebas Neue", cursive;
 }
 .startkarna{
     display: flex;
     flex-wrap: wrap;
-    border: 2px solid rgb(177, 124, 26);
+    /* border: 2px solid rgb(177, 124, 26); */
     margin-top: 78px;
 }
 .container{
@@ -225,16 +227,16 @@
 }
 
 .starterofpage{
-    border: 2px solid green;
+    /* border: 2px solid green; */
     display: flex;
     justify-content: flex-end;
 }
-.leftkaarea{
+/* .leftkaarea{
     border: 2px solid orange;
-}
-.rightkaarea{
+} */
+/* .rightkaarea{
     border: 2px solid blueviolet;
-}
+} */
 .textvstext{
     /* border: 2px solid black; */
     text-align: center;
@@ -266,4 +268,44 @@
 .leftfoot h2{
     position: relative;
     margin-top: 26px;
+}
+
+.area{
+    /* border: 2px solid black; */
+    display: flex;
+    flex-wrap: wrap;
+}
+/* .arleft{
+    border: 2px solid blue;
+} */
+.armiddle{
+    /* border: 2px solid green; */
+    width: 898px;
+    background: #f3f6f9;
+
+}
+
+.cbleft{
+    /* border: 2px solid orange; */
+    font-family: 'Baloo Bhai 2', cursive;
+    display: flex;
+    margin-left: 0px;
+    font-size: 27px;
+    justify-content: space-evenly;
+    margin-top: 81px;
+    background: #f3f6f9;
+}
+.hiding{
+    display: none;
+}
+.check1{
+   list-style-type: none;
+}
+
+.check2{
+    list-style-type: none;
+}
+.typetxt{
+    margin-top: 31px;
+    font-family: "Bebas Neue", cursive;
 }
