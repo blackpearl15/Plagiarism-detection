@@ -6,6 +6,7 @@ from django.core.files.storage import FileSystemStorage
 from django.http import FileResponse
 from bs4 import BeautifulSoup
 import PyPDF2
+import docx2txt
 from django.template import RequestContext
 
 
@@ -65,19 +66,35 @@ def result(request):
     elif request.method == 'POST' and state1 =='on':
         chara1 = request.FILES['f1']
         chara2 = request.FILES['f2']
-
-        a = PyPDF2.PdfFileReader(chara1)
-        c = PyPDF2.PdfFileReader(chara2)
-
-        b=a.getNumPages()
+        
+        chara1kaname = chara1.name
+        chara2kaname = chara2.name
         ans = ""
-        for i in range(1,b):
-            ans += a.getPage(i).extractText()
+        if(chara1kaname[-1] == 'f'):
+            a = PyPDF2.PdfFileReader(chara1)
+            b=a.getNumPages()
+            
+            for i in range(1,b):
+                ans += a.getPage(i).extractText()
 
-        d=c.getNumPages()
+        elif(chara2kaname[-1] == 'x'):
+            a = docx2txt.process(chara1)
+            ans = a
+
+        
+
         resu = ""
-        for i in range(1,d):
-            resu += c.getPage(i).extractText()
+        if(chara2kaname[-1] == 'f'):
+            c = PyPDF2.PdfFileReader(chara2)
+            d=c.getNumPages()
+            
+            for i in range(1,d):
+                resu += c.getPage(i).extractText()
+
+        elif(chara2kaname[-1] == 'x'):
+            c = docx2txt.process(chara2)
+            resu = c
+
         
         seq = SequenceMatcher(a=resu, b=ans)
 
