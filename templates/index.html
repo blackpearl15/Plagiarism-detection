@@ -80,16 +80,7 @@
       </div>
     </nav>
 
-    <div>
-      {% for message in messages%}
-     <div class="alert alert-success alert-dismissible fade show" role="alert">
-      <strong>{{message}}.......... </strong> <span></span>
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    {% endfor %}
-  </div>     
+       
   <div id="loading">
 
     
@@ -99,6 +90,17 @@
          
     </div> 
        
+    <div>
+      {% for message in messages%}
+     <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>{{message}}.......... </strong> <span></span>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endfor %}
+  </div>  
+  
     <div class="area">
       <div class="arleft">
          <img src="{% static 'imagesarea/bag2.jpg' %}">

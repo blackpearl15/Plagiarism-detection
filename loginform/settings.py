@@ -137,5 +137,7 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 SITE_ID = 1
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 LOGIN_REDIRECT_URL = '/'

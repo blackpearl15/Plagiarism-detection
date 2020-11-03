@@ -3,14 +3,42 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+.navkeniche{
+    border: 2px solid orange;
+        margin-top: 1%;
+}
 .bgarea{
-    border: 2px solid green;
+    border: 2px solid #352a79;
     background-image: url('imagesarea/resultbg.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     height: 630px;
     color: white;
-    margin-top: 70px;
+    margin-top: 53px;
+    background-size: 100% 100%;
+}
+.answer{
+    /* border: 2px solid white; */
+    margin: 94px 178px;
+    padding: 13px 38px;
+}
+.answer h1{
+    /* border: 2px solid orange; */
+    margin: 17px 68px;
+}
+.answer p{
+    /* border: 2px solid green; */
+    font-family: 'Lobster', cursive;
+    margin: 20px 198px;
+    font-size: 75px;
+}
+.formareakareport{
+    /* border: 2px solid white; */
+    display: flex;
+    margin: -51px 379px;
+    padding: 9px 26px;
+    justify-content: space-between;
+    margin-left: 200px;
+    margin-right: 542px;
 }
