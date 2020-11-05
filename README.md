@@ -1,7 +1,7 @@
 # _V-Detect_
 
-*  Yash Anand
-* RN Shetty Institute of Technology
+* **_Yash Anand_**
+* **_RN Shetty Institute of Technology_**
 * 2nd Year
 
 # THEME FOR THE PROJECT
@@ -33,3 +33,30 @@ A basic **python** API developed on **django platform** for calculating **simila
 * **Login** using Social Authentication via **Google**.
 * Report will consist of the plagiarism percentage along with the highlighted text showing the common text from both the input text and the reference text.
 
+## LIBRARIES,MODULES AND TECHNOLOGIES USED 
+* For Featuring Reference Code Links from the Online Sites-
+
+     1. **_Beautiful Soup_**
+     2. **_Web Scrapping_**
+     3. **Requests**
+     
+* For uploading various file formats-
+
+     1. doc2txt
+     2. PyPDF2
+     3. Pdf mining
+
+* For Social Authentication on LogIn Page(Using Google)-
+     
+     1. **_django allauth_**
+ 
+      
+* To generate final results and reports-
+
+     1. **ReportLab**  
+     2. Reportlab Canvas
+     3. PDFmetrics
+     
+
+
+     
