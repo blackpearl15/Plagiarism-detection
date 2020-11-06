@@ -20,6 +20,7 @@ Building a **plagiarism detector** that can detect both text and source code pla
 * **Login/ Signup** for user
 
 ## ADDITIONALS FEATURES FOR FUTURE 
+* Profile page for each user.
 * Option for recent tab to show user's past action.
 * Provide APIs for platform integrations.
 * Checking from various sites like medium,tutorialspoint etc..
