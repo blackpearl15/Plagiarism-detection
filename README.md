@@ -4,7 +4,7 @@
 * **_RN Shetty Institute of Technology_**
 * 2nd Year
 
-# THEME FOR THE PROJECT
+# THEME OF THE PROJECT
 Building a **plagiarism detector** that can detect both text and source code plagiarism.
 
 # TECH STACK
