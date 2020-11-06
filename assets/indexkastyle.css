@@ -232,9 +232,12 @@ html {
     display: flex;
     justify-content: flex-end;
 }
-/* .leftkaarea{
-    border: 2px solid orange;
-} */
+.leftkaarea{
+    /* border: 2px solid orange; */
+    font-size: 31px;
+    font-family: 'Baloo Bhai 2', cursive;
+    text-align: center;
+}
 /* .rightkaarea{
     border: 2px solid blueviolet;
 } */
