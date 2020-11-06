@@ -57,6 +57,34 @@ A basic **python** API developed on **django platform** for calculating **simila
      2. Reportlab Canvas
      3. PDFmetrics
      
+     
+# HERE ARE SOME SCREENSHOTS OF WEBSITE 
+
+## HOMEPAGE
+
+![alt text](https://github.com/blackpearl15/Plagiarism-detection/blob/master/Screenshots/Screenshot1.jpg "Homepage image 1")
+![alt text](https://github.com/blackpearl15/Plagiarism-detection/blob/master/Screenshots/Screenshot2.jpg "Homepage image 2")
+![alt text](https://github.com/blackpearl15/Plagiarism-detection/blob/master/Screenshots/Screenshot3.jpg "Homepage image 3")
+![alt text](https://github.com/blackpearl15/Plagiarism-detection/blob/master/Screenshots/Screenshot4.jpg "Homepage image 4")
+![alt text](https://github.com/blackpearl15/Plagiarism-detection/blob/master/Screenshots/Screenshot5.jpg "Homepage image 5")
+![alt text](https://github.com/blackpearl15/Plagiarism-detection/blob/master/Screenshots/Screenshot6.jpg "Homepage image 6")
+
+
+## LOGIN PAGE
+
+![alt text](https://github.com/blackpearl15/Plagiarism-detection/blob/master/Screenshots/accounts1.jpg "Login page")
+
+## REGISTRATION PAGE
+
+![alt text](https://github.com/blackpearl15/Plagiarism-detection/blob/master/Screenshots/accounts2.jpg "Register page")
+
+## RESULT PAGE
+
+![alt text](https://github.com/blackpearl15/Plagiarism-detection/blob/master/Screenshots/result1.jpg "Result page")
+
+## _**THANKS FOR YOUR VALUABLE TIME**_
+
+
 
 
      
